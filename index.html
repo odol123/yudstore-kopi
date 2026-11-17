@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#fffaf3" />
+<meta name="description" content="Kopi & Roti — roti dan kue rumahan yang dibuat segar setiap hari. Pesan lewat WhatsApp, bisa diantar." />
+<title>Kopi &amp; Roti — Roti Rumahan Segar Setiap Hari</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ================= TOPBAR ================= -->
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="brand" href="#top">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M5 9h11v5a5 5 0 0 1-5 5H10a5 5 0 0 1-5-5z" />
+          <path d="M16 10.5h1.6a2.6 2.6 0 0 1 0 5.2H16" />
+          <path d="M7 3.5c0 1.2-1 1.6-1 2.8M11 3.5c0 1.2-1 1.6-1 2.8" />
+        </svg>
+      </span>
+      <span class="brand__text">Kopi &amp; <em>Roti</em></span>
+    </a>
+
+    <nav class="nav" aria-label="Navigasi utama">
+      <a href="#produk">Produk</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#cara">Cara Pesan</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+
+    <button class="cartbtn" id="bukaKeranjang" type="button" aria-label="Buka keranjang pesanan">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 5h2l2 9.5a2 2 0 0 0 2 1.5h7a2 2 0 0 0 2-1.5L20 8H6.5" />
+        <circle cx="10" cy="19.5" r="1.3" />
+        <circle cx="17" cy="19.5" r="1.3" />
+      </svg>
+      <span class="cartbtn__label">Pesanan</span>
+      <span class="cartbtn__count" id="jumlahKeranjang" hidden>0</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__text">
+        <p class="tagline">
+          <span class="tagline__dot" aria-hidden="true"></span>
+          Dibuat segar setiap pagi
+        </p>
+        <h1>Roti dan kue rumahan,<br />langsung dari <span class="grad">dapur kami</span>.</h1>
+        <p class="hero__lead">
+          Semua roti, kue, dan kopi dibuat harian dengan bahan pilihan.
+          Pesan lewat WhatsApp, bisa diambil sendiri atau diantar.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#produk">Lihat Produk</a>
+          <a class="btn btn--ghost" href="#cara">Cara Pesan</a>
+        </div>
+        <ul class="stats">
+          <li><strong id="statProduk">0</strong><span>Menu pilihan</span></li>
+          <li><strong>5</strong><span>Tahun berjualan</span></li>
+          <li><strong>100%</strong><span>Halal &amp; segar</span></li>
+        </ul>
+      </div>
+
+      <div class="hero__art" aria-hidden="true">
+        <div class="art">
+          <svg viewBox="0 0 320 280" role="img" aria-label="Ilustrasi kopi dan roti">
+            <defs>
+              <linearGradient id="gCup" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffffff" />
+                <stop offset="1" stop-color="#f3e7db" />
+              </linearGradient>
+              <linearGradient id="gCoffee" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#7c3f1d" />
+                <stop offset="1" stop-color="#4a2410" />
+              </linearGradient>
+              <linearGradient id="gBread" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#e8b169" />
+                <stop offset="1" stop-color="#c07d34" />
+              </linearGradient>
+            </defs>
+
+            <ellipse cx="160" cy="238" rx="120" ry="16" fill="#000" opacity=".08" />
+
+            <!-- roti -->
+            <g transform="translate(30 150)">
+              <path d="M10 60 q0 -46 40 -46 q40 0 40 46 z" fill="url(#gBread)" />
+              <path d="M22 26 q8 -8 16 0 M46 24 q8 -8 16 0" fill="none" stroke="#a9682a" stroke-width="3" stroke-linecap="round" opacity=".7" />
+              <rect x="6" y="58" width="88" height="12" rx="6" fill="#a9682a" opacity=".85" />
+            </g>
+
+            <!-- tumpukan roti kecil -->
+            <g transform="translate(196 196)">
+              <ellipse cx="42" cy="42" rx="42" ry="10" fill="#a9682a" opacity=".3" />
+              <rect x="6" y="24" width="72" height="14" rx="7" fill="url(#gBread)" />
+              <rect x="2" y="8" width="72" height="14" rx="7" fill="#e8b169" />
+            </g>
+
+            <!-- cangkir -->
+            <g transform="translate(150 96)">
+              <path d="M2 34 q0 -12 12 -12 h60 q12 0 12 12 l-6 62 q-1 12 -13 12 h-46 q-12 0 -13 -12 z" fill="url(#gCup)" stroke="#e0cdba" stroke-width="2" />
+              <ellipse cx="44" cy="34" rx="42" ry="10" fill="url(#gCoffee)" />
+              <ellipse cx="44" cy="33" rx="34" ry="7" fill="#8b4a24" opacity=".55" />
+              <path d="M86 46 q26 2 24 24 q-2 20 -26 18" fill="none" stroke="#e0cdba" stroke-width="8" stroke-linecap="round" />
+              <path d="M86 46 q26 2 24 24 q-2 20 -26 18" fill="none" stroke="url(#gCup)" stroke-width="5" stroke-linecap="round" />
+              <!-- uap -->
+              <g fill="none" stroke="#c9b6a4" stroke-width="3.5" stroke-linecap="round" opacity=".8">
+                <path d="M28 16 q8 -10 0 -20 q-7 -9 0 -18" />
+                <path d="M44 12 q8 -11 0 -22 q-7 -10 0 -19" />
+                <path d="M60 16 q8 -10 0 -20 q-7 -9 0 -18" />
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <span class="chip chip--a">Fresh from oven</span>
+        <span class="chip chip--b">Bisa custom</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= KEUNGGULAN ================= -->
+  <section class="section section--tight">
+    <div class="keunggulan">
+      <article class="keunggulan__item">
+        <span class="keunggulan__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.2-2.9 7.6-7 9-4.1-1.4-7-4.8-7-9V6z" /><path d="M9 12.2l2.1 2.1L15.4 10" /></svg>
+        </span>
+        <h3>Bahan pilihan</h3>
+        <p>Tanpa pengawet. Mentega, telur, dan tepung dipilih setiap minggu.</p>
+      </article>
+
+      <article class="keunggulan__item">
+        <span class="keunggulan__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg>
+        </span>
+        <h3>Dibuat harian</h3>
+        <p>Dipanggang pagi, dikirim hari itu juga. Tidak ada stok lama.</p>
+      </article>
+
+      <article class="keunggulan__item">
+        <span class="keunggulan__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 18h16M6 18V9a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v9" /><path d="M9 6V4h6v2" /></svg>
+        </span>
+        <h3>Bisa custom</h3>
+        <p>Pesan jumlah banyak untuk acara, arisan, atau hadiah.</p>
+      </article>
+
+      <article class="keunggulan__item">
+        <span class="keunggulan__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 7h11v8H3z" /><path d="M14 10h4l3 3v2h-7z" /><circle cx="7" cy="17" r="2" /><circle cx="17.5" cy="17" r="2" /></svg>
+        </span>
+        <h3>Diantar sekitar</h3>
+        <p>Gratis ongkir untuk pesanan di atas jumlah tertentu.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= PRODUK ================= -->
+  <section class="section" id="produk">
+    <div class="section__head">
+      <div>
+        <p class="eyebrow">Menu</p>
+        <h2>Pilih produk Anda</h2>
+      </div>
+      <p class="section__note">Harga sudah termasuk kemasan.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="chips" id="chips" role="group" aria-label="Filter kategori"></div>
+
+      <div class="toolbar__right">
+        <label class="cari" for="cari">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5" />
+            <path d="M16 16l4.5 4.5" />
+          </svg>
+          <input id="cari" type="search" placeholder="Cari produk…" autocomplete="off" />
+        </label>
+
+        <label class="urut" for="urut">
+          <span>Urutkan</span>
+          <select id="urut">
+            <option value="populer">Paling laris</option>
+            <option value="murah">Harga terendah</option>
+            <option value="mahal">Harga tertinggi</option>
+            <option value="nama">Nama A–Z</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <p class="hasil" id="hasil" role="status"></p>
+
+    <div class="grid" id="grid"></div>
+
+    <p class="kosong" id="kosong" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="M16 16l4.5 4.5" /></svg>
+      <span>Produk tidak ditemukan. Coba kata kunci lain atau pilih kategori berbeda.</span>
+    </p>
+  </section>
+
+  <!-- ================= TENTANG ================= -->
+  <section class="section" id="tentang">
+    <div class="tentang">
+      <div class="tentang__art" aria-hidden="true">
+        <div class="tentang__frame">
+          <svg viewBox="0 0 300 240">
+            <defs>
+              <linearGradient id="gBread2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#e8b169" />
+                <stop offset="1" stop-color="#c07d34" />
+              </linearGradient>
+            </defs>
+            <ellipse cx="150" cy="210" rx="110" ry="14" fill="#000" opacity=".07" />
+            <g transform="translate(60 92)">
+              <path d="M0 60 q0 -50 45 -50 q45 0 45 50 z" fill="url(#gBread2)" />
+              <path d="M14 24 q9 -9 18 0 M52 22 q9 -9 18 0" fill="none" stroke="#a9682a" stroke-width="3.5" stroke-linecap="round" opacity=".65" />
+            </g>
+            <g transform="translate(150 128)">
+              <ellipse cx="48" cy="52" rx="48" ry="11" fill="#a9682a" opacity=".28" />
+              <rect x="8" y="32" width="80" height="15" rx="7.5" fill="#e8b169" />
+              <rect x="3" y="14" width="80" height="15" rx="7.5" fill="url(#gBread2)" />
+              <rect x="8" y="-4" width="70" height="15" rx="7.5" fill="#f0c483" />
+            </g>
+          </svg>
+        </div>
+        <span class="stamp">
+          <strong>5</strong>
+          <span>tahun</span>
+        </span>
+      </div>
+
+      <div class="tentang__text">
+        <p class="eyebrow">Tentang Kami</p>
+        <h2>Dimulai dari dapur rumah</h2>
+        <p>
+          Usaha ini dimulai dari kebiasaan memanggang roti untuk keluarga dan tetangga.
+          Seiring waktu, pesanan bertambah, dan dapur kecil kami berubah menjadi
+          usaha rumahan yang tetap dikerjakan sendiri.
+        </p>
+        <p>
+          Kami masih memakai cara yang sama: adonan dibuat pagi, dipanggang dalam
+          jumlah kecil, dan dikirim hari itu. Karena itu jumlahnya terbatas setiap hari.
+        </p>
+
+        <ul class="tentang__list">
+          <li><span aria-hidden="true">✓</span> Dikerjakan sendiri, bukan pabrik</li>
+          <li><span aria-hidden="true">✓</span> Tanpa pengawet dan pemanis berlebih</li>
+          <li><span aria-hidden="true">✓</span> Bisa pesan jumlah banyak untuk acara</li>
+        </ul>
+
+        <a class="btn btn--primary" href="#kontak">Hubungi Kami</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CARA PESAN ================= -->
+  <section class="section" id="cara">
+    <div class="section__head">
+      <div>
+        <p class="eyebrow">Cara Pesan</p>
+        <h2>Empat langkah saja</h2>
+      </div>
+    </div>
+
+    <ol class="steps">
+      <li class="step">
+        <span class="step__num">1</span>
+        <h3>Pilih produk</h3>
+        <p>Buka menu, pilih produk, lalu atur jumlahnya. Semua masuk ke daftar pesanan.</p>
+      </li>
+      <li class="step">
+        <span class="step__num">2</span>
+        <h3>Kirim pesanan</h3>
+        <p>Isi nama dan catatan, lalu kirim daftar pesanan lewat WhatsApp.</p>
+      </li>
+      <li class="step">
+        <span class="step__num">3</span>
+        <h3>Konfirmasi</h3>
+        <p>Kami cek stok hari itu dan kirim total akhir beserta cara pembayarannya.</p>
+      </li>
+      <li class="step">
+        <span class="step__num">4</span>
+        <h3>Ambil atau diantar</h3>
+        <p>Pesanan bisa diambil sendiri atau diantar ke alamat Anda.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ================= GALERI ================= -->
+  <section class="section" id="galeri">
+    <div class="section__head">
+      <div>
+        <p class="eyebrow">Galeri</p>
+        <h2>Hasil dari dapur kami</h2>
+      </div>
+      <p class="section__note">Ganti dengan foto asli produk Anda.</p>
+    </div>
+
+    <div class="galeri">
+      <figure class="galeri__item galeri__item--a"><span>Roti sobek</span></figure>
+      <figure class="galeri__item galeri__item--b"><span>Kue basah</span></figure>
+      <figure class="galeri__item galeri__item--c"><span>Kopi tubruk</span></figure>
+      <figure class="galeri__item galeri__item--d"><span>Donat gula</span></figure>
+      <figure class="galeri__item galeri__item--e"><span>Paket hampers</span></figure>
+      <figure class="galeri__item galeri__item--f"><span>Kue ulang tahun</span></figure>
+    </div>
+  </section>
+
+  <!-- ================= ULASAN (tampil hanya bila ada data asli) ================= -->
+  <section class="section" id="ulasan" hidden>
+    <div class="section__head">
+      <div>
+        <p class="eyebrow">Kata Pelanggan</p>
+        <h2>Ulasan pembeli</h2>
+      </div>
+    </div>
+    <div class="ulasan" id="ulasanGrid"></div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section" id="faq">
+    <div class="section__head">
+      <div>
+        <p class="eyebrow">Pertanyaan</p>
+        <h2>Yang sering ditanyakan</h2>
+      </div>
+    </div>
+
+    <div class="faq">
+      <details class="faq__item">
+        <summary>Berapa lama pesanan sampai?</summary>
+        <p>Untuk area sekitar, pesanan diantar pada hari yang sama bila dipesan sebelum pukul 15.00. Pesanan setelah itu dikirim besok pagi.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Apakah bisa pesan jumlah banyak?</summary>
+        <p>Bisa. Untuk acara, arisan, atau hadiah, silakan hubungi kami lebih dulu agar jumlahnya bisa disiapkan.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Pembayaran bisa lewat apa saja?</summary>
+        <p>Transfer bank dan e-wallet. Bisa juga bayar saat pesanan diterima. Cara lengkap kami kirim saat konfirmasi.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Ada ongkos kirim?</summary>
+        <p>Gratis untuk pesanan di atas jumlah tertentu dan jarak dekat. Di luar itu, ongkir menyesuaikan jarak.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Produk habis, apakah bisa dipesan lagi?</summary>
+        <p>Bisa. Produk yang bertanda habis akan tersedia lagi keesokan harinya. Kabari kami agar diingatkan.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ================= KONTAK ================= -->
+  <section class="section" id="kontak">
+    <div class="kontak">
+      <div class="kontak__intro">
+        <p class="eyebrow">Kontak</p>
+        <h2>Mau pesan atau bertanya?</h2>
+        <p>
+          Kirim pesan lewat WhatsApp. Kami balas pada jam buka,
+          biasanya dalam beberapa menit.
+        </p>
+
+        <ul class="kontak__info" id="kontakInfo"></ul>
+
+        <a class="wa" href="https://wa.me/6281234567890" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3.5 20.5l1.3-4.1A8.4 8.4 0 1 1 8 19.2z" />
+            <path d="M9 8.8c.3-.6.6-.6.9-.6h.5c.2 0 .4 0 .6.5l.7 1.6c.1.3 0 .5-.1.7l-.5.6c-.1.2-.2.3 0 .6.4.7 1 1.3 1.7 1.7.3.2.4.1.6-.1l.6-.6c.2-.2.4-.2.6-.1l1.6.8c.4.2.4.4.4.6 0 .3-.3 1.2-.8 1.5-.5.3-1.4.5-3.2-.4a9 9 0 0 1-3.8-3.9c-.4-.9-.6-1.6-.6-2.2 0-.6.3-1 .6-1.3z" />
+          </svg>
+          <span>Chat WhatsApp</span>
+        </a>
+      </div>
+
+      <form class="kontak__form" id="formTanya" novalidate>
+        <div class="field">
+          <label for="nama">Nama</label>
+          <input id="nama" name="nama" type="text" placeholder="Nama Anda" required />
+        </div>
+        <div class="field">
+          <label for="telepon">Nomor WhatsApp</label>
+          <input id="telepon" name="telepon" type="tel" inputmode="tel" placeholder="0812 3456 7890" required />
+        </div>
+        <div class="field">
+          <label for="pesan">Pesan</label>
+          <textarea id="pesan" name="pesan" rows="4" placeholder="Contoh: mau pesan 20 roti sobek untuk hari Sabtu" required></textarea>
+        </div>
+        <button class="btn btn--primary btn--block" type="submit">Kirim via WhatsApp</button>
+        <p class="kontak__note" id="formNote" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__col">
+      <span class="footer__brand">Kopi &amp; <em>Roti</em></span>
+      <p class="footer__copy">© <span id="tahun">2026</span> Kopi &amp; Roti.</p>
+    </div>
+
+    <nav class="footer__nav" aria-label="Navigasi footer">
+      <a href="#produk">Produk</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#cara">Cara Pesan</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+
+    <div class="footer__col footer__col--right">
+      <span class="footer__label">Ikuti kami</span>
+      <div class="footer__social">
+        <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= KERANJANG (drawer) ================= -->
+<div class="overlay" id="overlay" hidden></div>
+
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="Daftar pesanan">
+  <header class="drawer__head">
+    <h2>Daftar Pesanan</h2>
+    <button class="iconbtn" id="tutupKeranjang" type="button" aria-label="Tutup daftar pesanan">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+    </button>
+  </header>
+
+  <div class="drawer__body" id="isiKeranjang"></div>
+
+  <footer class="drawer__foot">
+    <div class="drawer__field">
+      <label for="pesananNama">Nama pemesan</label>
+      <input id="pesananNama" type="text" placeholder="Nama Anda" />
+    </div>
+    <div class="drawer__field">
+      <label for="pesananCatatan">Catatan (opsional)</label>
+      <input id="pesananCatatan" type="text" placeholder="Contoh: tanpa kismis, kirim pagi" />
+    </div>
+    <div class="drawer__field">
+      <label for="pesananMetode">Metode</label>
+      <select id="pesananMetode">
+        <option value="Ambil sendiri">Ambil sendiri</option>
+        <option value="Diantar">Diantar</option>
+      </select>
+    </div>
+
+    <div class="drawer__total">
+      <span>Total</span>
+      <strong id="totalKeranjang">Rp0</strong>
+    </div>
+    <p class="drawer__hint">Total akhir dan ongkir dikonfirmasi lewat WhatsApp.</p>
+
+    <button class="btn btn--primary btn--block" id="checkout" type="button">Kirim Pesanan via WhatsApp</button>
+    <button class="btn btn--ghost btn--block" id="kosongkanKeranjang" type="button">Kosongkan daftar</button>
+  </footer>
+</aside>
+
+<!-- ================= MODAL DETAIL ================= -->
+<div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Detail produk">
+  <div class="modal__card" id="modalCard"></div>
+</div>
+
+<!-- ================= TOAST ================= -->
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
